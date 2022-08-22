@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B75C73B828B2374700A0E159 /* AccountBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73B728B2374700A0E159 /* AccountBookApp.swift */; };
+		B75C73BA28B2374700A0E159 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73B928B2374700A0E159 /* HomeView.swift */; };
+		B75C73BC28B2374900A0E159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75C73BB28B2374900A0E159 /* Assets.xcassets */; };
+		B75C73BF28B2374900A0E159 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75C73BE28B2374900A0E159 /* Preview Assets.xcassets */; };
+		B75C73C728B2399700A0E159 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = B75C73C628B2399700A0E159 /* FSCalendar */; };
+		B75C73CC28B23A1200A0E159 /* FSCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73CB28B23A1200A0E159 /* FSCalendarView.swift */; };
+		B75C73D028B246D000A0E159 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73CF28B246D000A0E159 /* HistoryModel.swift */; };
+		B75C73D228B3976F00A0E159 /* HomeView+Observed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73D128B3976F00A0E159 /* HomeView+Observed.swift */; };
+		B75C73D428B3981200A0E159 /* HomeView+HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73D328B3981200A0E159 /* HomeView+HeaderView.swift */; };
+		B75C73D628B398AA00A0E159 /* CDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73D528B398AA00A0E159 /* CDivider.swift */; };
+		B75C73D828B39A0100A0E159 /* HomeView+HistoryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73D728B39A0100A0E159 /* HomeView+HistoryListItem.swift */; };
+		B75C73DA28B3CD5100A0E159 /* HomeView+PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73D928B3CD5100A0E159 /* HomeView+PlusButton.swift */; };
+		B75C73DD28B3D1D200A0E159 /* AddHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C73DC28B3D1D200A0E159 /* AddHistoryView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B75C73B428B2374700A0E159 /* AccountBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B75C73B728B2374700A0E159 /* AccountBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBookApp.swift; sourceTree = "<group>"; };
+		B75C73B928B2374700A0E159 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B75C73BB28B2374900A0E159 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B75C73BE28B2374900A0E159 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B75C73CB28B23A1200A0E159 /* FSCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarView.swift; sourceTree = "<group>"; };
+		B75C73CF28B246D000A0E159 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		B75C73D128B3976F00A0E159 /* HomeView+Observed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+Observed.swift"; sourceTree = "<group>"; };
+		B75C73D328B3981200A0E159 /* HomeView+HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+HeaderView.swift"; sourceTree = "<group>"; };
+		B75C73D528B398AA00A0E159 /* CDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDivider.swift; sourceTree = "<group>"; };
+		B75C73D728B39A0100A0E159 /* HomeView+HistoryListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+HistoryListItem.swift"; sourceTree = "<group>"; };
+		B75C73D928B3CD5100A0E159 /* HomeView+PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+PlusButton.swift"; sourceTree = "<group>"; };
+		B75C73DC28B3D1D200A0E159 /* AddHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHistoryView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B75C73B128B2374700A0E159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B75C73C728B2399700A0E159 /* FSCalendar in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B75C73AB28B2374700A0E159 = {
+			isa = PBXGroup;
+			children = (
+				B75C73B628B2374700A0E159 /* AccountBook */,
+				B75C73B528B2374700A0E159 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B75C73B528B2374700A0E159 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B75C73B428B2374700A0E159 /* AccountBook.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B75C73B628B2374700A0E159 /* AccountBook */ = {
+			isa = PBXGroup;
+			children = (
+				B75C73CE28B246BA00A0E159 /* Models */,
+				B75C73C928B239ED00A0E159 /* Resources */,
+				B75C73C828B239E100A0E159 /* Core */,
+				B75C73B728B2374700A0E159 /* AccountBookApp.swift */,
+			);
+			path = AccountBook;
+			sourceTree = "<group>";
+		};
+		B75C73BD28B2374900A0E159 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B75C73BE28B2374900A0E159 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B75C73C828B239E100A0E159 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B75C73CA28B239FE00A0E159 /* Components */,
+				B75C73CD28B23CA500A0E159 /* Home */,
+				B75C73DB28B3D1A400A0E159 /* AddHistory */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B75C73C928B239ED00A0E159 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B75C73BB28B2374900A0E159 /* Assets.xcassets */,
+				B75C73BD28B2374900A0E159 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B75C73CA28B239FE00A0E159 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B75C73CB28B23A1200A0E159 /* FSCalendarView.swift */,
+				B75C73D528B398AA00A0E159 /* CDivider.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B75C73CD28B23CA500A0E159 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B75C73B928B2374700A0E159 /* HomeView.swift */,
+				B75C73D128B3976F00A0E159 /* HomeView+Observed.swift */,
+				B75C73D328B3981200A0E159 /* HomeView+HeaderView.swift */,
+				B75C73D728B39A0100A0E159 /* HomeView+HistoryListItem.swift */,
+				B75C73D928B3CD5100A0E159 /* HomeView+PlusButton.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B75C73CE28B246BA00A0E159 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B75C73CF28B246D000A0E159 /* HistoryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B75C73DB28B3D1A400A0E159 /* AddHistory */ = {
+			isa = PBXGroup;
+			children = (
+				B75C73DC28B3D1D200A0E159 /* AddHistoryView.swift */,
+			);
+			path = AddHistory;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B75C73B328B2374700A0E159 /* AccountBook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B75C73C228B2374900A0E159 /* Build configuration list for PBXNativeTarget "AccountBook" */;
+			buildPhases = (
+				B75C73B028B2374700A0E159 /* Sources */,
+				B75C73B128B2374700A0E159 /* Frameworks */,
+				B75C73B228B2374700A0E159 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AccountBook;
+			packageProductDependencies = (
+				B75C73C628B2399700A0E159 /* FSCalendar */,
+			);
+			productName = AccountBook;
+			productReference = B75C73B428B2374700A0E159 /* AccountBook.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B75C73AC28B2374700A0E159 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					B75C73B328B2374700A0E159 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = B75C73AF28B2374700A0E159 /* Build configuration list for PBXProject "AccountBook" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B75C73AB28B2374700A0E159;
+			packageReferences = (
+				B75C73C528B2399700A0E159 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
+			productRefGroup = B75C73B528B2374700A0E159 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B75C73B328B2374700A0E159 /* AccountBook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B75C73B228B2374700A0E159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B75C73BF28B2374900A0E159 /* Preview Assets.xcassets in Resources */,
+				B75C73BC28B2374900A0E159 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B75C73B028B2374700A0E159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B75C73D028B246D000A0E159 /* HistoryModel.swift in Sources */,
+				B75C73DD28B3D1D200A0E159 /* AddHistoryView.swift in Sources */,
+				B75C73BA28B2374700A0E159 /* HomeView.swift in Sources */,
+				B75C73D228B3976F00A0E159 /* HomeView+Observed.swift in Sources */,
+				B75C73CC28B23A1200A0E159 /* FSCalendarView.swift in Sources */,
+				B75C73B828B2374700A0E159 /* AccountBookApp.swift in Sources */,
+				B75C73D828B39A0100A0E159 /* HomeView+HistoryListItem.swift in Sources */,
+				B75C73DA28B3CD5100A0E159 /* HomeView+PlusButton.swift in Sources */,
+				B75C73D428B3981200A0E159 /* HomeView+HeaderView.swift in Sources */,
+				B75C73D628B398AA00A0E159 /* CDivider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B75C73C028B2374900A0E159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B75C73C128B2374900A0E159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B75C73C328B2374900A0E159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AccountBook/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = 6VYPR8MZ57;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pagh2322.AccountBook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B75C73C428B2374900A0E159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AccountBook/Resources/Preview Content\"";
+				DEVELOPMENT_TEAM = 6VYPR8MZ57;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pagh2322.AccountBook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B75C73AF28B2374700A0E159 /* Build configuration list for PBXProject "AccountBook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75C73C028B2374900A0E159 /* Debug */,
+				B75C73C128B2374900A0E159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B75C73C228B2374900A0E159 /* Build configuration list for PBXNativeTarget "AccountBook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75C73C328B2374900A0E159 /* Debug */,
+				B75C73C428B2374900A0E159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B75C73C528B2399700A0E159 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B75C73C628B2399700A0E159 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B75C73C528B2399700A0E159 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B75C73AC28B2374700A0E159 /* Project object */;
+}
