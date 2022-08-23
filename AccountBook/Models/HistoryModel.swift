@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct HistoryModel {
+struct HistoryModel: Identifiable {
+    var id = UUID()
     var date: Date
     var price: Double
     var content: String

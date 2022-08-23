@@ -8,48 +8,47 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var appState: AppState
+    
     @StateObject var observed = Observed()
     
     let categories = ["수입", "지출"]
     
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack {
-                    HeaderView(showAnalysis: $observed.showAnalysis)
-                    .padding([.top, .horizontal])
-                    .padding(.horizontal)
-                    
-                    CDivider()
+            VStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    HeaderView(showAnalysis: $observed.showAnalysis, showCalendar: $observed.showCalendar)
+                        .padding(.top)
+                        .padding(.leading, 10)
                     
                     FSCalendarView()
-                        .frame(
-                            width: UIScreen.main.bounds.width - 20,
-                            height: 320
-                        )
-                        .padding()
-                    
-                    Divider()
-                    
-                    VStack {
-                        PlusButton(observed: observed)
-
-                        HistoryListItem(historyModel: HistoryModel(date: Date(), price: 1000, content: "모네 커피", category: "커피", isExpenditure: true))
-                        .padding()
-                    }
-                    .padding()
-                    Spacer()
+                        .frame(height: observed.showCalendar ? 312 : 0)
+                        .padding(.top, observed.showCalendar ? 12 : 0)
                 }
+                .padding(.horizontal)
                 
-                Picker("", selection: $observed.currentIndex) {
-                    ForEach(categories.indices, id: \.self) {
-                        Text(categories[$0])
+                Form {
+                    NavigationLink {
+                        Text("분석")
+                    } label: {
+                        Text("분석")
+                    }
+                    
+                    Section {
+                        ForEach(appState.todayHistoryModels) { historyModel in
+                            HistoryListItem(historyModel: historyModel)
+                        }
+                    } header: {
+                        HStack {
+                            Text("내역")
+                            Spacer()
+                            PlusButton(observed: observed)
+                        }
                     }
                 }
-                .pickerStyle(.segmented)
-                .frame(maxHeight: .infinity, alignment: .bottom)
-                .padding()
             }
+            .background(Color.init(UIColor.systemGroupedBackground).ignoresSafeArea())
             .navigationBarHidden(true)
         }
     }
@@ -60,3 +59,12 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+
+//                Picker("", selection: $observed.currentIndex) {
+//                    ForEach(categories.indices, id: \.self) {
+//                        Text(categories[$0])
+//                    }
+//                }
+//                .pickerStyle(.segmented)
+//                .frame(maxHeight: .infinity, alignment: .bottom)
+//                .padding()

@@ -9,16 +9,20 @@ import SwiftUI
 
 extension HomeView {
     struct PlusButton: View {
+        @EnvironmentObject var appState: AppState
         @ObservedObject var observed: Observed
         
         var body: some View {
-            Button {
+            Button("추가") {
                 observed.showAddModal.toggle()
-            } label: {
-                Image(systemName: "plus")
             }
             .sheet(isPresented: $observed.showAddModal) {
-                AddHistoryView(showAddModal: $observed.showAddModal)
+                NavigationView {
+                    AddHistoryView(showAddModal: $observed.showAddModal)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationTitle("추가하기")
+                        .font(.body)
+                }
             }
         }
     }

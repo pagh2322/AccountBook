@@ -13,20 +13,18 @@ extension HomeView {
         
         var body: some View {
             HStack {
-                Circle()
-                    .fill(.orange)
-                    .frame(width: 42, height: 42)
+                Text(historyModel.category)
+                    .font(.callout)
+                    .padding(4)
+                    .padding(.horizontal, 4)
+                    .background(RoundedRectangle(cornerRadius: 4).fill(Color.orange))
                 
-                VStack(alignment: .leading) {
-                    Text(historyModel.content)
-                        .fontWeight(.semibold)
-                    Text(historyModel.category)
-                        .font(.callout)
-                }
-                .padding(.leading, 8)
+                Text(historyModel.content)
+                    .fontWeight(.semibold)
+                    .padding(.leading, 8)
                 
                 Spacer()
-                Text("\(historyModel.price)원")
+                Text("\(PriceManager.string(price: historyModel.price))원")
             }
         }
     }

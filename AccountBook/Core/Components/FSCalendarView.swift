@@ -13,6 +13,7 @@ struct FSCalendarView: UIViewRepresentable {
     
     var scope: FSCalendarScope = .month
     
+    @EnvironmentObject var appState: AppState
 //    @EnvironmentObject var store: AppStore
     
     func makeUIView(context: Context) -> FSCalendar {
@@ -25,20 +26,23 @@ struct FSCalendarView: UIViewRepresentable {
         calendar.locale = Locale(identifier: "en_US")
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
 //        calendar.appearance.headerTitleFont = UIFont(name: "GangwonEduAll-OTFLight", size: 20)
-//        calendar.appearance.headerTitleColor = .init(.fontColor)
-//        calendar.appearance.headerDateFormat = "yyyy-MM"
         calendar.headerHeight = 0
         
         // WEEKDAY
+        calendar.appearance.weekdayFont = .preferredFont(forTextStyle: .headline)
 //        calendar.appearance.weekdayFont = UIFont(name: "GangwonEduAll-OTFBold", size: 12)
-//        calendar.appearance.weekdayTextColor = .init(.disabled)
+        calendar.appearance.weekdayTextColor = .init(.secondary)
         
         // TITLE
+        calendar.appearance.titleFont = .preferredFont(forTextStyle: .subheadline)
 //        calendar.appearance.titleFont = UIFont(name: "GangwonEduAll-OTFLight", size: 16)
+        calendar.appearance.titleDefaultColor = .init(.cBlack)
+        calendar.appearance.subtitleDefaultColor = .label
         
         // TODAY
-//        calendar.appearance.titleTodayColor = .init(.fontColor)
-//        calendar.appearance.todayColor = .init(.bgColor)
+        calendar.appearance.titleTodayColor = .label
+        calendar.appearance.todayColor = .systemGroupedBackground
+        calendar.appearance.subtitleTodayColor = .label
         
         // SELECTION
 //        calendar.appearance.selectionColor = .init(.fontColor)
@@ -46,9 +50,9 @@ struct FSCalendarView: UIViewRepresentable {
         
         // EVENT
 //        calendar.appearance.eventDefaultColor = .init(.fontColor)
-//        calendar.appearance.eventSelectionColor = .init(.bgColor)
+        calendar.appearance.eventSelectionColor = .init(.cBlue)
         
-//        calendar.select(store.state.selectedDate)
+        calendar.select(Date())
         
         return calendar
     }
@@ -57,6 +61,11 @@ struct FSCalendarView: UIViewRepresentable {
         _ uiView: FSCalendar,
         context: Context
     ) {
+        appState.refreshCalendar
+            .sink { _ in
+                uiView.reloadData()
+            }
+            .store(in: &appState.cancellables)
 //        if store.state.willRefreshCalendar {
 //            uiView.reloadData()
 //            store.dispatch(.willRefreshCalendar)
@@ -65,7 +74,7 @@ struct FSCalendarView: UIViewRepresentable {
     
     func makeCoordinator() -> Coordinator {
 //        return Coordinator(store)
-        return Coordinator()
+        return Coordinator(appState)
     }
     
     class Coordinator:
@@ -75,7 +84,11 @@ struct FSCalendarView: UIViewRepresentable {
         FSCalendarDelegateAppearance
     {
 //        private var store: AppStore
+        private var appState: AppState
         
+        init(_ appState: AppState) {
+            self.appState = appState
+        }
 //        init(_ store: AppStore) {
 //            self.store = store
 //        }
@@ -86,6 +99,7 @@ struct FSCalendarView: UIViewRepresentable {
             didSelect date: Date,
             at monthPosition: FSCalendarMonthPosition
         ) {
+            appState.currentDate = date
 //            store.dispatch(.didTapDate(date))
         }
         
@@ -131,10 +145,23 @@ struct FSCalendarView: UIViewRepresentable {
             _ calendar: FSCalendar,
             subtitleFor date: Date
         ) -> String? {
-            if date < Date() {
-                return "Today"
+            var price: Double = 0
+            for historyModel in appState.monthlyHistoryModels {
+                if Calendar.current.isDate(historyModel.date, inSameDayAs: date) {
+                    price += historyModel.price
+                }
             }
-            return nil
+            if price != 0 {
+                return PriceManager.string(price: price) + "원"
+            } else {
+                return nil
+            }
+        }
+        
+        func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+            appState.currentDate = calendar.currentPage
+//            appState.monthlyHistoryModels = [] // Assign related values
+            calendar.select(calendar.currentPage)
         }
     }
 }
