@@ -12,5 +12,9 @@ extension AddHistoryView {
         @Published var titleText = ""
         @Published var priceText = ""
         @Published var category = 0
+        
+        @Published var newCategoryText = ""
+        
+        @Published var historyType: HistoryType = .expenditure
     }
 }

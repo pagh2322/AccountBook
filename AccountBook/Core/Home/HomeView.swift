@@ -12,44 +12,33 @@ struct HomeView: View {
     
     @StateObject var observed = Observed()
     
-    let categories = ["수입", "지출"]
+    let categories = ["내역", "분석"]
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
+            ScrollView {
                 VStack(spacing: 0) {
-                    HeaderView(showAnalysis: $observed.showAnalysis, showCalendar: $observed.showCalendar)
-                        .padding(.top)
-                        .padding(.leading, 10)
-                    
-                    FSCalendarView()
-                        .frame(height: observed.showCalendar ? 312 : 0)
-                        .padding(.top, observed.showCalendar ? 12 : 0)
-                }
-                .padding(.horizontal)
-                
-                Form {
-                    NavigationLink {
-                        Text("분석")
-                    } label: {
-                        Text("분석")
-                    }
-                    
-                    Section {
-                        ForEach(appState.todayHistoryModels) { historyModel in
-                            HistoryListItem(historyModel: historyModel)
+                    VStack(alignment: .leading, spacing: 0) {
+                        MonthlyTotalPriceView()
+                        
+                        PickerView()
+                            .padding(.vertical, 12)
+                        
+                        Button(DateManager.string(date: appState.currentDate)) {
+                            
                         }
-                    } header: {
-                        HStack {
-                            Text("내역")
-                            Spacer()
-                            PlusButton(observed: observed)
-                        }
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        AbstractView()
+                            .padding(.top, 12)
                     }
+                    .padding(.horizontal, 12)
+                    .padding(.top)
                 }
             }
-            .background(Color.init(UIColor.systemGroupedBackground).ignoresSafeArea())
-            .navigationBarHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
+            .modifier(Toolbar())
         }
     }
 }
@@ -59,12 +48,3 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
-
-//                Picker("", selection: $observed.currentIndex) {
-//                    ForEach(categories.indices, id: \.self) {
-//                        Text(categories[$0])
-//                    }
-//                }
-//                .pickerStyle(.segmented)
-//                .frame(maxHeight: .infinity, alignment: .bottom)
-//                .padding()

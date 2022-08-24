@@ -9,9 +9,7 @@ import SwiftUI
 
 extension HomeView {
     final class Observed: ObservableObject {
-        @Published var showCalendar = true
-        @Published var showAddModal = false
-        @Published var showAnalysis = false
+        @Published var showDetailModal = false
         @Published var currentIndex = 0
     }
 }

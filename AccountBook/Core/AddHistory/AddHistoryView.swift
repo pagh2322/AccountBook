@@ -9,45 +9,23 @@ import SwiftUI
 
 struct AddHistoryView: View {
     @EnvironmentObject var appState: AppState
-    @Binding var showAddModal: Bool
+    
+    @Binding var willAddHistory: Bool
+    
+    @State var willAddCategory = false
     
     @StateObject var observed = Observed()
     
-    let categories = ["투자", "식비", "자기 계발"]
-    
     var body: some View {
-        Form {
+        List {
+            HistoryInfoView()
+            
             Section {
-                List {
-                    HStack {
-                        Text("제목")
-                        TextField("내용을 입력하세요", text: $observed.titleText)
-                            .padding(.leading, 8)
-                    }
-                    HStack {
-                        Text("금액")
-                        TextField("내용을 입력하세요", text: $observed.priceText)
-                            .keyboardType(.decimalPad)
-                            .padding(.leading, 8)
-                    }
-                    Picker("카테고리", selection: $observed.category) {
-                        ForEach(categories.indices, id: \.self) {
-                            Text(categories[$0])
-                        }
-                    }
-                }
-            }
-            Section {
-                Button("저장하기") {
-                    appState.monthlyHistoryModels.append(HistoryModel(date: appState.currentDate, price: Double(observed.priceText) ?? 0, content: observed.titleText, category: categories[observed.category], isExpenditure: true))
-                    showAddModal.toggle()
-                }
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button("취소") {
-                    showAddModal.toggle()
+                Button("내역 저장") {
+                    let historyModel = HistoryModel(date: appState.currentDate, price: Double(observed.priceText) ?? 0, content: observed.titleText, category: appState.allCategories[observed.category])
+                    appState.monthlyHistoryModels.append(historyModel)
+                    appState.todayHistoryModels.append(historyModel)
+                    willAddHistory.toggle()
                 }
             }
         }
@@ -57,7 +35,7 @@ struct AddHistoryView: View {
 struct AddHistoryView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddHistoryView(showAddModal: .constant(true))
+            AddHistoryView(willAddHistory: .constant(true))
                 .navigationBarTitleDisplayMode(.inline)
         }
     }

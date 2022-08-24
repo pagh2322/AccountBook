@@ -15,12 +15,14 @@ final class AppState: ObservableObject {
     @Published var todayHistoryModels: [HistoryModel] = []
     
     var refreshCalendar = PassthroughSubject<Bool, Never>()
+    var changeCalendarCurrentPage = PassthroughSubject<Bool, Never>()
     
     var cancellables = Set<AnyCancellable>()
     
+    @Published var allCategories = ["투자", "식비", "자기 계발"]
+    
     init() {
         $monthlyHistoryModels
-            .receive(on: DispatchQueue.main)
             .sink { [weak self] historyModels in
                 self?.monthlyTotalPrice = 0
                 historyModels.forEach { self?.monthlyTotalPrice += $0.price }
@@ -29,7 +31,6 @@ final class AppState: ObservableObject {
             .store(in: &cancellables)
         
         $currentDate
-            .receive(on: DispatchQueue.main)
             .sink { [weak self] date in
                 self?.todayHistoryModels = []
                 self?.monthlyHistoryModels.forEach { historyModel in
@@ -37,6 +38,13 @@ final class AppState: ObservableObject {
                         self?.todayHistoryModels.append(historyModel)
                     }
                 }
+            }
+            .store(in: &cancellables)
+        
+        changeCalendarCurrentPage
+            .sink { [weak self] _ in
+                self?.monthlyTotalPrice = 0
+                self?.monthlyHistoryModels.forEach { self?.monthlyTotalPrice += $0.price }
             }
             .store(in: &cancellables)
     }
