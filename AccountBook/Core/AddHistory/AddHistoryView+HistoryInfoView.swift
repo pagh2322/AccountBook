@@ -63,7 +63,7 @@ extension AddHistoryView {
                 BaseText("카테고리")
                 
                 Spacer()
-                BaseText(appState.allCategories[observed.category], foregroundColor: .secondary)
+                BaseText(appState.allCategories[observed.category].name ?? "", foregroundColor: .secondary)
             }
         }
     }

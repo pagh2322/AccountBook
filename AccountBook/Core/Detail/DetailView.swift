@@ -19,20 +19,12 @@ struct DetailView: View {
             TotalInfoView()
             
             HistoryListView()
-            
-            Text("내역 추가")
-                .foregroundColor(.accentColor)
-                .background(NavigationLink(isActive: $willAddHistory) {
-                    AddHistoryView(willAddHistory: $willAddHistory)
-                } label: {
-                    EmptyView()
-                })
-            
         }
         .listStyle(.sidebar)
         .modifier(Toolbar(
             DateManager.string(date: appState.currentDate, stringStyle: .all),
-            showDetailModal: $showDetailModal
+            showDetailModal: $showDetailModal,
+            willAddHistory: $willAddHistory
         ))
     }
 }

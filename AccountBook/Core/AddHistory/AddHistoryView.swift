@@ -25,7 +25,7 @@ struct AddHistoryView: View {
                     observed.historyModel.date = appState.currentDate
                     observed.historyModel.content = observed.titleText
                     observed.historyModel.price = Double(observed.priceText)!
-                    observed.historyModel.category = appState.allCategories[observed.category]
+                    observed.historyModel.category = appState.allCategories[observed.category].name ?? ""
                     observed.historyModel.type = observed.historyType.rawValue
                     appState.insertHistory(hisotryModel: observed.historyModel)
                     willAddHistory.toggle()

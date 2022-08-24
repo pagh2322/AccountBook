@@ -18,5 +18,7 @@ extension AddHistoryView {
         @Published var newCategoryText = ""
         
         @Published var historyType: HistoryType = .expenditure
+        
+        @Published var selectedColor: Color = .cBlack
     }
 }

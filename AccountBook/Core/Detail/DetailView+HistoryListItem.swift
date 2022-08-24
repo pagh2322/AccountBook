@@ -17,7 +17,7 @@ extension DetailView {
                     .font(.caption2)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 6)
-                    .background(RoundedRectangle(cornerRadius: 4).fill(Color.cRed))
+                    .background(RoundedRectangle(cornerRadius: 4).fill(CategoryService.fetchColor(categoryName: history.category!)))
                 
                 BaseText(history.content!, weight: .semibold)
                     .padding(.leading, 8)

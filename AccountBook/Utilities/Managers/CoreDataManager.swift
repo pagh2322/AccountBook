@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import SwiftUI
 
 final class CoreDataManager {
     static let shared = CoreDataManager()
@@ -33,6 +34,27 @@ final class CoreDataManager {
             } catch {
                 context.rollback()
             }
+        }
+    }
+    
+    func fetchCategories() -> [Category] {
+        let request = Category.fetchRequest()
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            fatalError()
+        }
+    }
+    
+    func fetchCategory(name: String) -> Category? {
+        let request = Category.fetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", name)
+        
+        do {
+            return try context.fetch(request).first
+        } catch {
+            fatalError()
         }
     }
     
@@ -67,7 +89,11 @@ final class CoreDataManager {
     
     func deleteHistory(history: History) {
         context.delete(history)
-        
+        saveContext()
+    }
+    
+    func deleteCategory(category: Category) {
+        context.delete(category)
         saveContext()
     }
 }

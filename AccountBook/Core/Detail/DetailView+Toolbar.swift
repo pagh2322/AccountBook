@@ -11,10 +11,16 @@ extension DetailView {
     struct Toolbar: ViewModifier {
         let title: String
         @Binding var showDetailModal: Bool
+        @Binding var willAddHistory: Bool
         
-        init(_ title: String, showDetailModal: Binding<Bool>) {
+        init(
+            _ title: String,
+            showDetailModal: Binding<Bool>,
+            willAddHistory: Binding<Bool>
+        ) {
             self.title = title
             self._showDetailModal = showDetailModal
+            self._willAddHistory = willAddHistory
         }
         
         func body(content: Content) -> some View {
@@ -30,9 +36,19 @@ extension DetailView {
                     
                     ToolbarItem(placement: .principal) {
                         Text(title)
+                            .font(.headline)
                     }
                     
-                    // Edit Button
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("내역 추가") {
+                            willAddHistory.toggle()
+                        }
+                        .background(NavigationLink(isActive: $willAddHistory) {
+                            AddHistoryView(willAddHistory: $willAddHistory)
+                        } label: {
+                            EmptyView()
+                        })
+                    }
                 }
         }
     }

@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 final class AppState: ObservableObject {
-    @Published var monthlyHistories: [History] = HistoryService.fetchMonthlyHistories(date: Date())
+    @Published var monthlyHistories = HistoryService.fetchMonthlyHistories(date: Date())
     
     @Published var monthlyExpenditurePrice: Double = 0
     @Published var monthlyIncomePrice: Double = 0
@@ -28,7 +28,7 @@ final class AppState: ObservableObject {
     
     var cancellables = Set<AnyCancellable>()
     
-    @Published var allCategories = ["투자", "식비", "자기 계발"]
+    @Published var allCategories = CategoryService.fetchCategories()
     
     init() {
         $monthlyHistories
@@ -104,5 +104,16 @@ final class AppState: ObservableObject {
     
     func deleteHistory(history: History) {
         HistoryService.deleteHistory(history: history)
+    }
+    
+    func insertCategory(categoryModel: CategoryModel) {
+        let category = CategoryService.convertToCategory(categoryModel)
+        allCategories.append(category)
+        CategoryService.saveCategory(category: category)
+    }
+    
+    func deleteCategory(at offsets: IndexSet) {
+        CategoryService.deleteCategory(category: allCategories[offsets.count - 1])
+        allCategories.remove(atOffsets: offsets)
     }
 }
