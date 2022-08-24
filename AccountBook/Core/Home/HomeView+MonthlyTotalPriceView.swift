@@ -10,10 +10,31 @@ import SwiftUI
 extension HomeView {
     @ViewBuilder
     func MonthlyTotalPriceView() -> some View {
-        HStack(spacing: 12) {
-            TotalPriceView(historyType: .expenditure, price: appState.monthlyTotalPrice)
-            TotalPriceView(historyType: .income, price: appState.monthlyTotalPrice)
+        VStack(spacing: 0) {
+            SumPriceView()
+            
+            HStack(spacing: 12) {
+                TotalPriceView(historyType: .expenditure, price: appState.monthlyExpenditurePrice)
+                TotalPriceView(historyType: .income, price: appState.monthlyIncomePrice)
+            }
+            .padding(.top, 4)
         }
+    }
+    
+    @ViewBuilder
+    func SumPriceView() -> some View {
+        VStack(alignment: .leading) {
+            BaseText("이번 달 잔액", foregroundColor: .secondary)
+            
+            HStack(alignment: .lastTextBaseline, spacing: 0) {
+                BaseText(PriceManager.string(price: appState.monthlyIncomePrice - appState.monthlyExpenditurePrice), foregroundColor: .cBlack)
+                    .font(.title)
+
+                BaseText("원", foregroundColor: .secondary)
+                    .padding(.leading, 4)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     @ViewBuilder

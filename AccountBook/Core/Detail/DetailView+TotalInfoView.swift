@@ -11,19 +11,19 @@ extension DetailView {
     @ViewBuilder
     func TotalInfoView() -> some View {
         VStack(alignment: .leading) {
-            BaseText("총 \(appState.todayHistoryModels.count)건")
+            BaseText("총 \(appState.dailyHistoriesNumber)건")
                 .font(.headline)
             
             Divider()
             
             VStack(alignment: .leading, spacing: 0) {
-                PriceTextView(price: appState.monthlyTotalPrice)
+                PriceTextView(price: appState.dailyExpenditurePrice)
                 
                 PriceBarView(type: .expenditure, width: 100)
             }
             
             VStack(alignment: .leading, spacing: 0) {
-                PriceTextView(price: appState.monthlyTotalPrice)
+                PriceTextView(price: appState.dailyIncomePrice)
                 
                 PriceBarView(type: .income, width: 200)
             }

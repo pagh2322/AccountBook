@@ -40,6 +40,9 @@
 		B7D44DB928B659A100913743 /* DetailView+HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DB828B659A100913743 /* DetailView+HistoryListView.swift */; };
 		B7D44DBB28B659DE00913743 /* DetailView+TotalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DBA28B659DE00913743 /* DetailView+TotalInfoView.swift */; };
 		B7D44DBD28B65C1E00913743 /* AddHistoryView+HistoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DBC28B65C1E00913743 /* AddHistoryView+HistoryInfoView.swift */; };
+		B7D44DD528B6650800913743 /* Monthly+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DD128B6650800913743 /* Monthly+CoreDataClass.swift */; };
+		B7D44DD728B6650800913743 /* History+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DD328B6650800913743 /* History+CoreDataClass.swift */; };
+		B7D44DDC28B6753A00913743 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DDB28B6753A00913743 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		B7D44DB828B659A100913743 /* DetailView+HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailView+HistoryListView.swift"; sourceTree = "<group>"; };
 		B7D44DBA28B659DE00913743 /* DetailView+TotalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailView+TotalInfoView.swift"; sourceTree = "<group>"; };
 		B7D44DBC28B65C1E00913743 /* AddHistoryView+HistoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddHistoryView+HistoryInfoView.swift"; sourceTree = "<group>"; };
+		B7D44DD128B6650800913743 /* Monthly+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monthly+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B7D44DD328B6650800913743 /* History+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B7D44DDB28B6753A00913743 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +181,8 @@
 		B75C73CE28B246BA00A0E159 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B7D44DC828B662FE00913743 /* CoreData */,
 				B75C73CF28B246D000A0E159 /* HistoryModel.swift */,
-				B7D44D9A28B5278300913743 /* History.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				B75C73E428B4A73400A0E159 /* Color.swift */,
+				B7D44DDB28B6753A00913743 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +246,16 @@
 				B7D44DAE28B6569C00913743 /* HistoryService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B7D44DC828B662FE00913743 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B7D44D9A28B5278300913743 /* History.xcdatamodeld */,
+				B7D44DD128B6650800913743 /* Monthly+CoreDataClass.swift */,
+				B7D44DD328B6650800913743 /* History+CoreDataClass.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,15 +346,18 @@
 				B7D44D9928B5274800913743 /* CoreDataManager.swift in Sources */,
 				B75C73E228B4A45B00A0E159 /* PriceManager.swift in Sources */,
 				B7D44DAF28B6569C00913743 /* HistoryService.swift in Sources */,
+				B7D44DD728B6650800913743 /* History+CoreDataClass.swift in Sources */,
 				B75C73E528B4A73400A0E159 /* Color.swift in Sources */,
 				B7D44DB328B657E100913743 /* HomeView+Toolbar.swift in Sources */,
 				B7D44D9E28B5359E00913743 /* HomeView+MonthlyTotalPriceView.swift in Sources */,
 				B7D44DB128B6578D00913743 /* HomeView+AbstractView.swift in Sources */,
 				B7D44DA928B6524E00913743 /* AddHistoryView+PickCategoryView.swift in Sources */,
 				B7D44DBB28B659DE00913743 /* DetailView+TotalInfoView.swift in Sources */,
+				B7D44DDC28B6753A00913743 /* Date.swift in Sources */,
 				B75C73BA28B2374700A0E159 /* HomeView.swift in Sources */,
 				B75C73D228B3976F00A0E159 /* HomeView+Observed.swift in Sources */,
 				B75C73CC28B23A1200A0E159 /* FSCalendarView.swift in Sources */,
+				B7D44DD528B6650800913743 /* Monthly+CoreDataClass.swift in Sources */,
 				B7D44D9728B525E100913743 /* BaseText.swift in Sources */,
 				B75C73B828B2374700A0E159 /* AccountBookApp.swift in Sources */,
 				B7D44DBD28B65C1E00913743 /* AddHistoryView+HistoryInfoView.swift in Sources */,

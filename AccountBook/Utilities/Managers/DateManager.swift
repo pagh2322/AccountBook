@@ -27,4 +27,10 @@ final class DateManager {
         dateFormatter.dateFormat = stringStyle.dateFormat
         return dateFormatter.string(from: date)
     }
+    
+    static func convertToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMM"
+        return dateFormatter.string(from: date)
+    }
 }

@@ -22,9 +22,12 @@ struct AddHistoryView: View {
             
             Section {
                 Button("내역 저장") {
-                    let historyModel = HistoryModel(date: appState.currentDate, price: Double(observed.priceText) ?? 0, content: observed.titleText, category: appState.allCategories[observed.category])
-                    appState.monthlyHistoryModels.append(historyModel)
-                    appState.todayHistoryModels.append(historyModel)
+                    observed.historyModel.date = appState.currentDate
+                    observed.historyModel.content = observed.titleText
+                    observed.historyModel.price = Double(observed.priceText)!
+                    observed.historyModel.category = appState.allCategories[observed.category]
+                    observed.historyModel.type = observed.historyType.rawValue
+                    appState.insertHistory(hisotryModel: observed.historyModel)
                     willAddHistory.toggle()
                 }
             }

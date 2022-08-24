@@ -12,7 +12,7 @@ struct HomeView: View {
     
     @StateObject var observed = Observed()
     
-    let categories = ["내역", "분석"]
+    let categories = ["내역", "통계"]
     
     var body: some View {
         NavigationView {

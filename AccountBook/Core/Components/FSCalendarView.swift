@@ -40,6 +40,7 @@ struct FSCalendarView: UIViewRepresentable {
 //        calendar.appearance.titleFont = UIFont(name: "GangwonEduAll-OTFLight", size: 16)
         calendar.appearance.titleDefaultColor = .init(.cBlack)
         calendar.appearance.subtitleDefaultColor = .init(.cRed)
+        calendar.placeholderType = .none
         
         // TODAY
         calendar.appearance.titleTodayColor = .init(.cBlue)
@@ -74,25 +75,18 @@ struct FSCalendarView: UIViewRepresentable {
                 uiView.reloadData()
             }
             .store(in: &appState.cancellables)
-//        if store.state.willRefreshCalendar {
-//            uiView.reloadData()
-//            store.dispatch(.willRefreshCalendar)
-//        }
     }
     
     func makeCoordinator() -> Coordinator {
-//        return Coordinator(store)
         return Coordinator(appState, showDetailModal: $showDetailModal)
     }
     
     class Coordinator:
         FSCalendarAppearance,
-//        NSObject,
         FSCalendarDelegate,
         FSCalendarDataSource,
         FSCalendarDelegateAppearance
     {
-//        private var store: AppStore
         private var appState: AppState
         @Binding var showDetailModal: Bool
         
@@ -100,11 +94,7 @@ struct FSCalendarView: UIViewRepresentable {
             self.appState = appState
             self._showDetailModal = showDetailModal
         }
-//        init(_ store: AppStore) {
-//            self.store = store
-//        }
         
-        // Did Select
         func calendar(
             _ calendar: FSCalendar,
             didSelect date: Date,
@@ -117,8 +107,6 @@ struct FSCalendarView: UIViewRepresentable {
             }
             appState.currentDate = date
             showDetailModal.toggle()
-            
-//            store.dispatch(.didTapDate(date))
         }
         
         func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleOffsetFor date: Date) -> CGPoint {
@@ -129,11 +117,6 @@ struct FSCalendarView: UIViewRepresentable {
             _ calendar: FSCalendar,
             numberOfEventsFor date: Date
         ) -> Int {
-//            for diary in store.state.diaries {
-//                if diary.date == date {
-//                    return 1
-//                }
-//            }
             return 0
         }
         
@@ -142,37 +125,14 @@ struct FSCalendarView: UIViewRepresentable {
             appearance: FSCalendarAppearance,
             eventDefaultColorsFor date: Date
         ) -> [UIColor]? {
-//            for diary in store.state.diaries {
-//                if diary.date == date {
-//                    return [.init(DiaryManager.shared.fetchMotionColor(diary))]
-//                }
-//            }
             return nil
-        }
-        
-        func calendar(
-            _ calendar: FSCalendar,
-            appearance: FSCalendarAppearance,
-            fillSelectionColorFor date: Date
-        ) -> UIColor? {
-//            for diary in store.state.diaries {
-//                if diary.date == date {
-//                    return .init(DiaryManager.shared.fetchMotionColor(diary))
-//                }
-//            }
-            return appearance.selectionColor
         }
         
         func calendar(
             _ calendar: FSCalendar,
             subtitleFor date: Date
         ) -> String? {
-            var price: Double = 0
-            for historyModel in appState.monthlyHistoryModels {
-                if Calendar.current.isDate(historyModel.date, inSameDayAs: date) {
-                    price += historyModel.price
-                }
-            }
+            let price = HistoryService.fetchDailyPrice(date: date, type: .expenditure)
             if price != 0 {
                 return PriceManager.string(price: price)
             } else {
@@ -182,8 +142,7 @@ struct FSCalendarView: UIViewRepresentable {
         
         func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
             appState.currentDate = calendar.currentPage
-//            appState.monthlyHistoryModels = [] // Assign related values
-            appState.changeCalendarCurrentPage.send(true)
+            appState.changeCalendarCurrentPage.send(calendar.currentPage)
             calendar.select(calendar.currentPage)
         }
         
@@ -219,14 +178,10 @@ struct FSCalendarView: UIViewRepresentable {
             at position: FSCalendarMonthPosition
         ) {
             let diyCell = (cell as! CustomCell)
-            var price: Double = 0
-            for historyModel in appState.monthlyHistoryModels {
-                if Calendar.current.isDate(historyModel.date, inSameDayAs: date) {
-                    price += historyModel.price
-                }
-            }
+            
+            let price = HistoryService.fetchDailyPrice(date: date, type: .income)
             if price != 0 {
-                diyCell.lbSecondaRiga.text = "second"
+                diyCell.lbSecondaRiga.text = PriceManager.string(price: price)
             } else {
                 diyCell.lbSecondaRiga.text = ""
             }

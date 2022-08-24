@@ -9,6 +9,8 @@ import SwiftUI
 
 extension AddHistoryView {
     final class Observed: ObservableObject {
+        @Published var historyModel = HistoryModel()
+        
         @Published var titleText = ""
         @Published var priceText = ""
         @Published var category = 0
