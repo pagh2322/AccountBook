@@ -43,6 +43,8 @@
 		B7D44DDC28B6753A00913743 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DDB28B6753A00913743 /* Date.swift */; };
 		B7D44DDE28B698D400913743 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DDD28B698D400913743 /* CategoryService.swift */; };
 		B7D44DE028B69BDD00913743 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DDF28B69BDD00913743 /* CategoryModel.swift */; };
+		B7D44DE228B6A93100913743 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DE128B6A93100913743 /* View.swift */; };
+		B7D44DE528B6A95500913743 /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D44DE428B6A95500913743 /* SizePreferenceKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		B7D44DDB28B6753A00913743 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B7D44DDD28B698D400913743 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		B7D44DDF28B69BDD00913743 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		B7D44DE128B6A93100913743 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		B7D44DE428B6A95500913743 /* SizePreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePreferenceKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,7 @@
 		B75C73E028B4A44200A0E159 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B7D44DE328B6A94C00913743 /* Others */,
 				B7D44DAC28B6566E00913743 /* Managers */,
 				B7D44DAD28B6567A00913743 /* Services */,
 			);
@@ -214,6 +219,7 @@
 			children = (
 				B75C73E428B4A73400A0E159 /* Color.swift */,
 				B7D44DDB28B6753A00913743 /* Date.swift */,
+				B7D44DE128B6A93100913743 /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +254,14 @@
 				B7D44DDD28B698D400913743 /* CategoryService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B7D44DE328B6A94C00913743 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				B7D44DE428B6A95500913743 /* SizePreferenceKey.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +344,7 @@
 				B75C73E928B4B28100A0E159 /* DateManager.swift in Sources */,
 				B7D44DB928B659A100913743 /* DetailView+HistoryListView.swift in Sources */,
 				B75C73DF28B3D3F200A0E159 /* AddHistory+Observed.swift in Sources */,
+				B7D44DE228B6A93100913743 /* View.swift in Sources */,
 				B75C73DD28B3D1D200A0E159 /* AddHistoryView.swift in Sources */,
 				B7D44D9C28B5278300913743 /* History.xcdatamodeld in Sources */,
 				B7D44DB728B658B600913743 /* DetailView+Observed.swift in Sources */,
@@ -339,6 +354,7 @@
 				B7D44D9928B5274800913743 /* CoreDataManager.swift in Sources */,
 				B75C73E228B4A45B00A0E159 /* PriceManager.swift in Sources */,
 				B7D44DAF28B6569C00913743 /* HistoryService.swift in Sources */,
+				B7D44DE528B6A95500913743 /* SizePreferenceKey.swift in Sources */,
 				B75C73E528B4A73400A0E159 /* Color.swift in Sources */,
 				B7D44DB328B657E100913743 /* HomeView+Toolbar.swift in Sources */,
 				B7D44D9E28B5359E00913743 /* HomeView+MonthlyTotalPriceView.swift in Sources */,

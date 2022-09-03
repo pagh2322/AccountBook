@@ -109,7 +109,7 @@ final class AppState: ObservableObject {
     func insertCategory(categoryModel: CategoryModel) {
         let category = CategoryService.convertToCategory(categoryModel)
         allCategories.append(category)
-        CategoryService.saveCategory(category: category)
+        CategoryService.saveCategory()
     }
     
     func deleteCategory(at offsets: IndexSet) {

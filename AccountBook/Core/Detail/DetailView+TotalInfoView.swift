@@ -19,14 +19,26 @@ extension DetailView {
             VStack(alignment: .leading, spacing: 0) {
                 PriceTextView(price: appState.dailyExpenditurePrice)
                 
-                PriceBarView(type: .expenditure, width: 100)
+                PriceBarView(type: .expenditure, width: $observed.expenditureWidth)
             }
             
             VStack(alignment: .leading, spacing: 0) {
                 PriceTextView(price: appState.dailyIncomePrice)
                 
-                PriceBarView(type: .income, width: 200)
+                PriceBarView(type: .income, width: $observed.incomeWidth)
             }
+        }
+        .onAppear {
+//            if appState.dailyIncomePrice > 0 &&
+//               appState.dailyExpenditurePrice > 0 {
+//                if appState.dailyExpenditurePrice > appState.dailyIncomePrice {
+//                    observed.expenditureWidth = observed.maxWidth
+//                    observed.incomeWidth = observed.maxWidth * (appState.dailyIncomePrice / appState.dailyExpenditurePrice)
+//                } else {
+//                    observed.incomeWidth = observed.maxWidth
+//                    observed.expenditureWidth = observed.maxWidth * (appState.dailyExpenditurePrice / appState.dailyIncomePrice)
+//                }
+//            }
         }
     }
     
@@ -42,10 +54,10 @@ extension DetailView {
     }
     
     @ViewBuilder
-    func PriceBarView(type: HistoryType, width: CGFloat) -> some View {
+    func PriceBarView(type: HistoryType, width: Binding<CGFloat>) -> some View {
         BaseText(type.text, foregroundColor: .white, weight: .semibold)
             .font(.footnote)
-            .frame(width: width, alignment: .leading)
+            .frame(maxWidth: width.wrappedValue, alignment: .leading)
             .padding(.leading, 8)
             .padding(.vertical, 6)
             .background(type == .expenditure ? Color.cRed : Color.cBlue)

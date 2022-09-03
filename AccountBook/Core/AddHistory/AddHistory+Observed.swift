@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 extension AddHistoryView {
     final class Observed: ObservableObject {
@@ -20,5 +21,7 @@ extension AddHistoryView {
         @Published var historyType: HistoryType = .expenditure
         
         @Published var selectedColor: Color = .cBlack
+        
+        @Published var isEditingCategories = false
     }
 }

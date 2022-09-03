@@ -48,14 +48,9 @@ extension AddHistoryView {
             PickCategoryView()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("추가") {
-                            willAddCategory.toggle()
+                        Button(observed.isEditingCategories ? "완료" : "편집") {
+                            observed.isEditingCategories.toggle()
                         }
-                        .background(NavigationLink(isActive: $willAddCategory) {
-                            AddCategoryView()
-                        } label: {
-                            EmptyView()
-                        })
                     }
                 }
         } label: {
@@ -63,7 +58,13 @@ extension AddHistoryView {
                 BaseText("카테고리")
                 
                 Spacer()
-                BaseText(appState.allCategories[observed.category].name ?? "", foregroundColor: .secondary)
+                
+                if appState.allCategories.count > observed.category {
+                    BaseText(appState.allCategories[observed.category].name ?? "", foregroundColor: .secondary)
+                        .onChange(of: appState.allCategories) { _ in
+                            observed.category = 0
+                        }
+                }
             }
         }
     }

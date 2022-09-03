@@ -204,7 +204,6 @@ struct FSCalendarView: UIViewRepresentable {
             lbSecondaRiga.text = ""
             self.lbSecondaRiga = lbSecondaRiga
 
-
             let view = UIView(frame: self.bounds)
             view.insertSubview(self.lbSecondaRiga, belowSubview: self.subtitleLabel)
             self.backgroundView = view
@@ -214,8 +213,6 @@ struct FSCalendarView: UIViewRepresentable {
             super.layoutSubviews()
             
             self.subtitleLabel.textAlignment = .right
-//            self.layer.borderWidth = 0.4
-//            self.layer.borderColor = UIColor(.cBlack.opacity(0.4)).cgColor
 
             self.lbSecondaRiga.frame = self.subtitleLabel.frame
             self.lbSecondaRiga.font = self.subtitleLabel.font
@@ -227,4 +224,3 @@ struct FSCalendarView: UIViewRepresentable {
         }
      }
 }
-

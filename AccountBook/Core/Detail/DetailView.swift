@@ -13,6 +13,7 @@ struct DetailView: View {
     @State var willAddHistory = false
     
     @EnvironmentObject var appState: AppState
+    @StateObject var observed = Observed()
     
     var body: some View {
         List {
@@ -21,11 +22,13 @@ struct DetailView: View {
             HistoryListView()
         }
         .listStyle(.sidebar)
-        .modifier(Toolbar(
-            DateManager.string(date: appState.currentDate, stringStyle: .all),
-            showDetailModal: $showDetailModal,
-            willAddHistory: $willAddHistory
-        ))
+        .id(UUID())
+        .modifier(
+            Toolbar(
+                DateManager.string(date: appState.currentDate, stringStyle: .all),
+                showDetailModal: $showDetailModal,
+                willAddHistory: $willAddHistory)
+        )
     }
 }
 

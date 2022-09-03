@@ -52,7 +52,7 @@ final class CategoryService {
         CoreDataManager.shared.saveContext()
     }
     
-    static func saveCategory(category: Category) {
+    static func saveCategory() {
         CoreDataManager.shared.saveContext()
     }
     
